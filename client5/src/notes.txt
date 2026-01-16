@@ -1,0 +1,85 @@
+:: Why React?
+While everything we do in React can technically be done in plain HTML, CSS and JS. React allows:
+    - Better code reuse
+    - Large-scale performance in production
+    - Clean separation of concerns via components
+    - Easier maintenance and testing
+
+:: Folder Structure
+Industry Standard Folder Layout:
+    src/
+     |-- components/    # Reusable UI components
+     |-- pages/         # Page-specific components
+     |-- utils/         # Constants, helpers and mock data
+
+:: .jsx vs .js - Which one for components?
+
+✅ use .jsx for files containing JSX
+    const MyComponent = () => {
+        return <h1>Hello, JSX</h1>;
+    };
+    export default MyComponent;
+
+Pros of .jsx:
+    - Clarity: indicates the presence of JSX
+    - Better editor support (highlighting, linting)
+    - Matches community convention
+
+⚠️ You can use .js but...
+Cons:
+    - ❌ Misleading for JSX-containing files
+    - ❌ May confuse older tooling
+    - ❌ Less expressive in files lists
+
+    ✅ Best Practice:
+    Use .jsx for components
+    Use .js for utilities, config and non-JSX logic
+
+:: Importing files in React
+
+You can import like this:
+    import Header from "./components/Header.jsx     // you can skip the extension
+
+    Note: The .jsx extension is optional while importing
+
+
+  🧠Constants and static data
+
+❌ Don't keep large static data or hardcoded strings inside components.
+✅ Instead, extract to utils/
+
+    // utils/constants.js
+        export const CDN_LINK = "https://cdnlink.com";
+        export const URL = "https://suhail.app";
+
+    // utils/mockdata.js
+        const data = [
+            {
+                // complete large dataset
+            }
+        ];
+
+        export default data;
+
+        
+ 💡Export tips
+Named exports
+        export const CDN_LINK = "https://cdnlink.com";
+        export const URL = "https://suhail.app";
+
+        import {CDN_LINK, URL} from "../utils/constans";
+
+
+    Default exports
+        export default data;
+
+        import data from "../utils/mockdata";
+
+📏 File Size Guidelines
+In companies like Uber, file length best practices:
+    - 🚫 Avoid files longer than 100 files
+    - ⚠️ If you exceed that, refactor into smaller components or files
+
+        
+
+
